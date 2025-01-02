@@ -1466,11 +1466,6 @@ declare module "noblox.js" {
     function uploadAnimation(data: string | stream.Stream, itemOptions?: UploadModelItemOptions, asset?: number, jar?: CookieJar): Promise<number>;
 
     /**
-     * 🔐 Uploads an image stored in `file` as an `assetType` with `name`. If `groupId` is specified it will be uploaded to that group. This is for uploading shirts, pants, or decals which have the assetTypes `11`, `12`, and `13`, respectively. Returns the asset `id` of the new item.
-     */
-    function uploadItem(name: string, assetType: UploadItemAssetType, file: string | stream.Stream, groupId?: number, jar?: CookieJar): Promise<UploadItemResponse>;
-
-    /**
      * 🔐 Uploads `data` to `asset` with `itemOptions`. If asset is empty a new asset will be created. Both the assetId as well as the assetVersionId are returned in a object. Note that `itemOptions` is required when creating a new asset. It is only optional when updating an old asset, which ignores `itemOptions` and only updates `data`.
      */
     function uploadModel(data: string | stream.Stream, itemOptions?: UploadModelItemOptions, asset?: number, jar?: CookieJar): Promise<UploadModelResponse>;
