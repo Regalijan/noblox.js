@@ -1938,3 +1938,32 @@ type EntryVersionsResult = {
     versions: EntryVersion[];
     nextPageCursor: string;
 }
+
+/**
+ * @typedef
+*/
+type OperationResponse = {
+    done: boolean;
+    operationId: string;
+    path: string;
+    response?: {
+        path: string;
+        revisionId: string;
+        revisionCreateTime: Date;
+        assetId: string;
+        displayName: string;
+        description: string;
+        assetType: string;
+        creationContext: {
+            creator: {
+                groupId: string;
+            } | {
+                userId: string;
+            }
+        }
+        moderationResult: {
+            moderationState: 'Approved' | 'Rejected' | 'Reviewing';
+        }
+        state: 'Active' | 'Archived'
+    }
+}

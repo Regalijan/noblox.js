@@ -1,6 +1,8 @@
 // Type definitions for noblox.js@4.8.0-0
 // Authored by Gamenew09 w/ changes by suufi
 
+import { type ReadStream } from "fs";
+
 declare module "noblox.js" {
     // Interfaces/Types
     import * as events from "events";
@@ -1405,6 +1407,36 @@ declare module "noblox.js" {
         nextPageCursor: string;
     }
 
+    interface OperationResponse {
+        done: boolean;
+        operationId: string;
+        path: string;
+        response?: {
+            path: string;
+            revisionId: string;
+            revisionCreateTime: Date;
+            assetId: string;
+            displayName: string;
+            description: string;
+            assetType: string;
+            creationContext: {
+                creator: {
+                    groupId: string;
+                } | {
+                    userId: string;
+                }
+            }
+            moderationResult: {
+                moderationState: 'Approved' | 'Rejected' | 'Reviewing';
+            }
+            state: 'Active' | 'Archived'
+        }
+    }
+
+    interface AssetOperation {
+
+    }
+
     // Functions
 
     /// AccountInformation
@@ -2321,6 +2353,10 @@ declare module "noblox.js" {
      */
     function threaded(getPage: (pageNum: number) => Promise<void> | void, start: number, end: number): ThreadedPromise;
 
+    /**
+     * 🔐 Uploads an asset to Roblox
+     */
+    function upload(uploadOptions: { assetId?: number | string, assetType?: string, description?: string, displayName?: string, file?: ReadStream, groupId?: number })
 
     /**
      * ✅ Updates library options. This allows you to modify settings such as time-out, or number of event retries without
