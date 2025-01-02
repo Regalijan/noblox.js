@@ -285,23 +285,6 @@ declare module "noblox.js" {
         imageUrl?: string;
     }
 
-    interface UploadItemResponse {
-        id: number;
-    }
-
-    interface UploadModelResponse {
-        AssetId: number;
-        AssetVersionId: number;
-    }
-
-    interface UploadModelItemOptions {
-        name: string;
-        description?: string;
-        copyLocked?: boolean;
-        allowComments?: boolean;
-        groupId?: number;
-    }
-
     interface ConfigureItemResponse {
         name: string;
         assetId: number;
@@ -1459,16 +1442,6 @@ declare module "noblox.js" {
      * ✅ Gets `info` of `asset` and caches according to settings.
      */
     function getProductInfo(asset: number): Promise<ProductInfo>;
-
-    /**
-     * 🔐 Uploads `data` to `asset` with `itemOptions`. If asset is empty a new asset will be created. The assetId is returned as a number. Note that `itemOptions` is required when creating a new asset. It is only optional when updating an old asset, which ignores `itemOptions` and only updates `data`.
-     */
-    function uploadAnimation(data: string | stream.Stream, itemOptions?: UploadModelItemOptions, asset?: number, jar?: CookieJar): Promise<number>;
-
-    /**
-     * 🔐 Uploads `data` to `asset` with `itemOptions`. If asset is empty a new asset will be created. Both the assetId as well as the assetVersionId are returned in a object. Note that `itemOptions` is required when creating a new asset. It is only optional when updating an old asset, which ignores `itemOptions` and only updates `data`.
-     */
-    function uploadModel(data: string | stream.Stream, itemOptions?: UploadModelItemOptions, asset?: number, jar?: CookieJar): Promise<UploadModelResponse>;
 
     /// Avatar
 

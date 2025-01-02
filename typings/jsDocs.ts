@@ -291,32 +291,6 @@ type ThumbnailData = {
 
 /**
  * @typedef
-*/
-type UploadItemResponse = {
-    id: number;
-}
-
-/**
- * @typedef
-*/
-type UploadModelResponse = {
-    AssetId: number;
-    AssetVersionId : number;
-}
-
-/**
- * @typedef
-*/
-type UploadModelItemOptions = {
-    name: string;
-    description?: string;
-    copyLocked?: boolean;
-    allowComments?: boolean;
-    groupId?: number;
-}
-
-/**
- * @typedef
  */
 type ConfigureItemResponse = {
     name: string;
