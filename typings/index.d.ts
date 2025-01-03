@@ -1478,7 +1478,7 @@ declare module "noblox.js" {
     /**
      * 🔐 Uploads an asset to Roblox
      */
-    function upload(uploadOptions: { assetId?: number | string, assetType?: string, description?: string, displayName?: string, file?: ReadStream, groupId?: number })
+    function upload(uploadOptions: { assetId?: number | string, assetType?: string, description?: string, displayName?: string, file?: ReadStream, groupId?: number }, jar?: CookieJar): Promise<OperationResponse>;
 
     /// Avatar
 
