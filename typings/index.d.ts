@@ -2340,7 +2340,7 @@ declare module "noblox.js" {
     function jar(sessionOnly?: boolean): CookieJar;
 
     /**
-     * 🔐 Polls an operation until completion (or until 5 attempts) and returns the response
+     * 🔐 Polls an operation until completion (or until 5 attempts) and returns the response.
      */
     function pollResult(url: string, jar?: CookieJar): Promise<OperationResponse>;
 
