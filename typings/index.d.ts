@@ -1475,6 +1475,11 @@ declare module "noblox.js" {
      */
     function getProductInfo(asset: number): Promise<ProductInfo>;
 
+    /**
+     * 🔐 Uploads an asset to Roblox
+     */
+    function upload(uploadOptions: { assetId?: number | string, assetType?: string, description?: string, displayName?: string, file?: ReadStream, groupId?: number })
+
     /// Avatar
 
     /**
@@ -2335,6 +2340,11 @@ declare module "noblox.js" {
     function jar(sessionOnly?: boolean): CookieJar;
 
     /**
+     * 🔐 Polls an operation until completion (or until 5 attempts) and returns the response
+     */
+    function pollResult(url: string, jar?: CookieJar): Promise<OperationResponse>;
+
+    /**
      * 🔐 Refreshes the internally stored cookie, or the cookie provided, stores the new cookie and returns it.
      */
     function refreshCookie(cookie?: string): Promise<string>;
@@ -2352,11 +2362,6 @@ declare module "noblox.js" {
      * Returns a promise with the additional function properties `getStatus`, `getCompleted`, `getExpected` which represent the percent completion, the current number of completed threads, and the total number of threads for completion.
      */
     function threaded(getPage: (pageNum: number) => Promise<void> | void, start: number, end: number): ThreadedPromise;
-
-    /**
-     * 🔐 Uploads an asset to Roblox
-     */
-    function upload(uploadOptions: { assetId?: number | string, assetType?: string, description?: string, displayName?: string, file?: ReadStream, groupId?: number })
 
     /**
      * ✅ Updates library options. This allows you to modify settings such as time-out, or number of event retries without
